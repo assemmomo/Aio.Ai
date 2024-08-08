@@ -1,0 +1,319 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: "Rubik", sans-serif;
+    text-decoration: none;
+    transition: 0.3s;
+}
+:root{
+    --mainColor--:rgb(1, 14, 1);
+    --mainColor2--:rgb(62, 88, 62);
+    --mainColor3--:rgb(55, 165, 55);
+}
+html{
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar{
+    background-color: var(--mainColor2--);
+}
+::-webkit-scrollbar-button{
+    background-color: var(--mainColor--);
+}
+::-webkit-scrollbar-thumb{
+    background-color: white;
+}
+body{
+    background-color: var(--mainColor--);
+}
+nav{
+    width: 100%;
+    height: 75px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--mainColor--);
+}
+nav div{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+nav:first-child img{
+    width: 80px;
+    cursor: pointer;
+}
+nav:first-child h2{
+    cursor: pointer;
+}
+.navMid{
+    justify-content: space-between;
+    padding: 20px;
+}
+.navMid a{
+    margin: 10px;
+    font-size: 20px;
+}
+.navMid a:hover{
+    color: var(--mainColor3--);
+}
+.navRight{
+    justify-content: end;
+}
+.loginBtn{
+    width: 120px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 50px;
+    cursor: pointer;
+    border-radius: 40px;
+    border: 2px solid var(--mainColor2--);
+}
+.loginBtn:hover{
+    transform: scale(1.05);
+    border: 2px solid var(--mainColor3--);
+}
+.sec1{
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    background-color: var(--mainColor--);
+    background-image: url(./imgs/bg.jpg);
+    background-size: auto;
+    background-repeat: repeat;
+    background-blend-mode: luminosity;
+    top: 0px;
+}
+.imgHolder{
+    position: relative;
+    width: 450px;
+    left: 50%;
+    top: 100px;
+    transform: translateX(-50%);
+}
+.imgHolder img{
+    position: absolute;
+    width: 450px;
+    left: 50%;
+    /* top: 100px; */
+    transform: translateX(-50%);
+}
+.imgHolder::after{
+    content: "Hello! I am Aio";
+    position: absolute;
+    font-size: 25px;
+    right: -140px;
+    top: 0px;
+    width: 220px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 30px 50px 50px 0;
+}
+.imgHolder::before{
+    content: "Your AI assistant.How can i help you?";
+    position: absolute;
+    font-size: 25px;
+    right: -370px;
+    top: 70px;
+    width: 450px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 30px 50px 50px 0;
+}
+.leftInfo{
+    position: relative;
+    width: 33%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    top: 15%;
+    left: 50px;
+    justify-content: center;
+}
+.leftInfo p{
+    font-size: 70px;
+}
+.leftInfo div{
+    width: 200px;
+    height: 55px;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mainColor2--);
+    margin-top: 50px;
+    cursor: pointer;
+    margin-right: 120px;
+}
+.leftInfo div:hover{
+    letter-spacing: 2px;
+    border: 1px solid white;
+    background-color: var(--mainColor3--);
+    color: black;
+}
+.sec2{
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    box-shadow: 0 -30px 100px var(--mainColor2--);
+    border-top: 5px solid var(--mainColor3--);
+}
+.imgsHolder{
+    position: relative;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 50%;
+    /* background-color: red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.imgsHolder div{
+    width: 30%;
+    height: 90%;
+    /* background-color: blue; */
+    margin: 10px;
+    border-radius: 30px;
+    border: 2px solid white;
+    background-image: url(./imgs/img1.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 80px;
+}
+.img2{
+    background-image: url(./imgs/img2.jpg) !important;
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 0px !important;
+}
+.img3{
+    background-image: url(./imgs/img3.jpg) !important;
+    background-size: cover;
+    background-position: center;
+}
+.dots{
+    position: fixed;
+    height: 300px;
+    width: 70px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.dots div{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: var(--mainColor2--);
+    border: 2px solid white;
+    cursor: pointer;
+}
+.dotActive{
+    background-color: var(--mainColor3--) !important;
+}
+.custom-shape-divider-top-1723135780 {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+.custom-shape-divider-top-1723135780 img{
+    position: relative;
+    width: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0px;
+    z-index: 100;
+}
+.custom-shape-divider-top-1723135780 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.custom-shape-divider-top-1723135780 .shape-fill {
+    fill: rgb(1, 14, 1);
+}
+.sec3{
+    position: relative;
+    width: 100%;
+    height: 120vh;
+    bottom: 20vh;
+    background-color: var(--mainColor2--);
+}
+.sec3::after{
+    content: "Aio Chat";
+    position: absolute;
+    left: 50%;
+    top: 70px;
+    transform: translateX(-50%);
+    font-size: 60px;
+}
+.chatDad{
+    position: absolute;
+    width: 85%;
+    height: 75%;
+    background-color: rgba(57, 57, 68, 0.514);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    border: 2px solid #2c2c2c;
+}
+.chatInput{
+    margin-bottom: 20px;
+    width: 60%;
+    height: 50px;
+    border: none;
+    border-right: 3px solid white;
+    background-color: #2c2c2c;
+    border-radius: 20px;
+    outline: none;
+    padding: 10px;
+}
+footer{
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    background-color: var(--mainColor3--);
+}
+.links{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 300px;
+    height: 70px;
+    border: 2px solid #2c2c2c;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.links i{
+    font-size: 45px;
+    color: #2c2c2c;
+}
