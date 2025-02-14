@@ -26,14 +26,17 @@ html{
 }
 body{
     background-color: var(--mainColor--);
+    overflow-x: hidden;
 }
 nav{
+    position: fixed;
     width: 100%;
     height: 75px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--mainColor--);
+    z-index: 999;
 }
 nav div{
     width: 30%;
@@ -73,6 +76,7 @@ nav:first-child h2{
     cursor: pointer;
     border-radius: 40px;
     border: 2px solid var(--mainColor2--);
+    user-select: none;
 }
 .loginBtn:hover{
     transform: scale(1.05);
@@ -88,26 +92,29 @@ nav:first-child h2{
     background-repeat: repeat;
     background-blend-mode: luminosity;
     top: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction:row;
 }
 .imgHolder{
     position: relative;
-    width: 450px;
-    left: 50%;
-    top: 100px;
-    transform: translateX(-50%);
+    width: 750px;
+    height: 500px;
+    /* background-color: red !important; */
+    margin-right: 100px;
 }
 .imgHolder img{
     position: absolute;
     width: 450px;
-    left: 50%;
     /* top: 100px; */
-    transform: translateX(-50%);
 }
 .imgHolder::after{
     content: "Hello! I am Aio";
     position: absolute;
     font-size: 25px;
-    right: -140px;
+    right: 150px;
     top: 0px;
     width: 220px;
     height: 50px;
@@ -121,7 +128,7 @@ nav:first-child h2{
     content: "Your AI assistant.How can i help you?";
     position: absolute;
     font-size: 25px;
-    right: -370px;
+    right: -80px;
     top: 70px;
     width: 450px;
     height: 50px;
@@ -133,13 +140,12 @@ nav:first-child h2{
 }
 .leftInfo{
     position: relative;
-    width: 33%;
+    width: 25%;
     height: 50%;
     display: flex;
     flex-direction: column;
-    top: 15%;
-    left: 50px;
     justify-content: center;
+    /* background-color: blue; */
 }
 .leftInfo p{
     font-size: 70px;
@@ -157,10 +163,8 @@ nav:first-child h2{
     margin-right: 120px;
 }
 .leftInfo div:hover{
-    letter-spacing: 2px;
-    border: 1px solid white;
-    background-color: var(--mainColor3--);
-    color: black;
+    letter-spacing: 1.5px;
+    border: 3px solid var(--mainColor2--);
 }
 .sec2{
     position: relative;
@@ -172,36 +176,41 @@ nav:first-child h2{
 .imgsHolder{
     position: relative;
     top: 50px;
-    left: 50%;
+    left: -50%;
     transform: translateX(-50%);
-    width: 50%;
+    width: 80%;
     height: 55%;
-    /* background-color: red; */
     display: flex;
     justify-content: space-between;
     align-items: center;
     overflow: hidden;
     transition: 1s;
+    opacity: 0;
 }
-.imgsHolder div{
-    width: 30%;
+.imgsHolder > div{
+    width: 400px !important;
     height: 90%;
     /* background-color: blue; */
-    margin: 10px;
+    /* margin-left: 10px; */
     border-radius: 30px;
     border: 2px solid white;
     background-image: url(./imgs/img1.jpg);
     background-size: cover;
     background-position: center;
-    /* margin-bottom: 80px; */
-    margin-top: 1200px;
-    transition: 0.7s;
+}
+@keyframes imgAnimation{
+    from{
+        margin-top: 800px;
+    }
+    to{
+        margin-top: 0px;
+    }
 }
 .img2{
     background-image: url(./imgs/img2.jpg) !important;
     background-size: cover;
     background-position: center;
-    margin-bottom: -50px !important;
+    /* margin-bottom: -50px !important; */
 }
 .img3{
     background-image: url(./imgs/img3.jpg) !important;
@@ -288,14 +297,37 @@ nav:first-child h2{
     border-radius: 50px;
     border: 2px solid #2c2c2c;
 }
+.chatInputArea{
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+.chatInputArea div{
+    width: 6%;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--mainColor2--);
+    font-weight: 700;
+    transition: 0.1s;
+}
+.chatInputArea div:hover{
+    background-color: var(--mainColor2--);
+    color: white;
+}
 .chatInput{
     margin-bottom: 20px;
-    width: 60%;
+    width: 75%;
     height: 50px;
     border: none;
-    border-right: 3px solid white;
-    background-color: #2c2c2c;
-    border-radius: 20px;
+    border-left: 3px solid white;
+    background-color: #3b3b3b;
+    border-radius: 15px 10px 10px 15px;
     outline: none;
     padding: 10px;
 }
@@ -304,21 +336,42 @@ nav:first-child h2{
     width: 80%;
     height: 70%;
     margin-top: 150px;
-    background-color: #2c2c2c73;
+    background-color: #2c2c2c;
     border-right: #2c2c2c solid 2px;
     overflow: scroll;
     border-radius: 20px;
+    overflow: auto;
+    scrollbar-width: none;
+    padding-top: 100px;
 }
 .chatArea p{
     display: block;
     padding: 10px;
     margin: 10px;
+    font-size: 18px;
 }
 .userP{
     direction: rtl;
 }
-
-
+.chatArea h3{
+    position: absolute;
+    left: 50%;
+    top: 30px;
+    transform: translateX(-50%);
+    font-size: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    border-bottom: 1px solid #585858cb;
+    padding-bottom: 10px;
+}
+.chatArea::-webkit-scrollbar {
+    display: none;
+}
+.aiStartM{
+    position: relative;
+    left: -400px;
+    transition: 1s;
+}
 footer{
     position: relative;
     width: 100%;
@@ -348,4 +401,237 @@ footer h2{
     transform: translateX(-50%);
     font-size: 20px;
     color: var(--mainColor2--);
+}
+.loginPage{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+    width: 0px;
+    height: 0px;
+    background-color: #2c2c2c;
+    display: flex;
+    overflow: hidden;
+}
+.loginPage >div{
+    position: relative;
+    width: 50% !important;
+    height: 100%;
+    display: flex;
+}
+.loginForm{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: #2c2c2c !important;
+    transition: 1s !important;
+    z-index: 99;
+}
+.sign{
+    width: 35%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    gap: 50px;
+    border-bottom: 1px solid #6e6e6ec0;
+    padding-bottom: 30px;
+}
+.sign >div{
+    width: 200px;
+    height: 60px;
+    border-radius: 40px;
+    background-color: #2c2c2c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: var(--mainColor3--);
+    border: 2px solid var(--mainColor2--);
+}
+.sign >div:hover{
+    background-color: var(--mainColor2--);
+    color: white;
+}
+.signActive{
+    background-color: var(--mainColor2--) !important;
+    color: white !important;
+    border: 1px solid white !important;
+}
+.signIn{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+    gap: 50px;
+    height: 75%;
+    width: 100%;
+    padding-top: 50px;
+}
+.signIn >input{
+    width: 400px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    padding-left: 10px;
+    color: var(--mainColor2--);
+}
+.signIn > h2{
+    font-size: 40px;
+}
+.signIn > div{
+    width: 120px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    border-radius: 40px;
+    border: 2px solid var(--mainColor2--);
+    user-select: none;
+}
+.signIn > div:hover{
+    transform: scale(1.05);
+    border: 2px solid var(--mainColor3--);
+}
+.loginTxt{
+    position: absolute;
+    background-color: var(--mainColor--);
+    background-image: url(./imgs/bg.jpg);
+    background-size: auto;
+    background-repeat: repeat;
+    background-blend-mode: luminosity;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: 1s !important;
+    z-index: 100;
+}
+.loginTxt h1{
+    font-size: 70px;
+    margin-bottom: 50px;
+    text-align: center;
+}
+.loginTxt p{
+    font-size: 30px;
+    margin-bottom: 50px;
+    width: 70%;
+    text-align: center;
+}
+.loginActive{
+    width:100%;
+    height:95%;
+    z-index:998;
+    margin-top:2.5%;
+}
+@media (max-width: 1150px){
+    nav div{
+        width: 40%;
+    }
+    .leftInfo{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+    .leftInfo p{
+        font-size: 50px;
+    }
+    .leftInfo a{
+        margin-left: 100px;
+    }
+    .imgHolder{
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: start;
+    }
+    .imgHolder::after{
+        display: none;
+    }
+    .imgHolder::before{
+        display: none;
+    }
+    .imgHolder img{
+        width: 450px;
+        margin-left: 100px;
+    }
+    .imgHolder::after{
+        font-size: 20px;
+        right: 100px;
+    }
+    .imgHolder::before{
+        font-size: 20px;
+        right: -50px;
+    }
+    .sec1{
+        height: 100vh;
+        flex-direction:row-reverse !important;
+    }
+    .sec2{
+        height: 110vh;
+    }
+    .imgsHolder{
+        top: 30px;
+        width: 100%;
+        height: 90%;
+        flex-direction: column;
+        justify-content: start;
+        gap: 10px;
+    }
+    .imgsHolder div{
+        width: 30% !important;
+        height: 250px;
+        margin: 10px;
+        margin: 0px;
+    }
+    .dots{
+        height: 200px;
+    }
+    .dots div{
+        width: 20px;
+        height: 20px;
+    }
+    .custom-shape-divider-top-1723135780 img{
+        width: 150px;
+    }
+    .custom-shape-divider-top-1723135780 svg {
+        height: 100px;
+    }
+    .sec3{
+        height: 110vh;
+    }
+    .sec3::after{
+        font-size: 50px;
+    }
+    .chatDad{
+        width: 90%;
+        height: 80%;
+    }
+    .chatInput{
+        width: 70%;
+    }
+    .chatArea{
+        width: 90%;
+    }
+    footer{
+        height: 30vh;
+    }
+    .links{
+        width: 200px;
+        height: 50px;
+    }
+    footer h2{
+        font-size: 15px;
+    }
+    
+}
+@media (max-width: 1000px){
+    .dots{
+        display: none;
+    }
 }
