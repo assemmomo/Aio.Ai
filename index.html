@@ -22,16 +22,16 @@
             <a href="#footer">Contact</a>
         </div>
         <div class="navRight">
-            <div class="loginBtn">Log In</div>
+            <div onclick="openLoginPage()" class="loginBtn">Log In</div>
         </div>
     </nav>
     <section class="sec1" id="sec1">
-        <div class="imgHolder">
-            <img draggable="false" src="./imgs/robot imag.png" alt="">
-        </div>
         <div class="leftInfo">
             <p>Generate Your <br>Dream Image <br> With Aio.ai</p>
             <a href="#chatDad"><div class="genBtn">Generate Now</div></a>
+        </div>
+        <div class="imgHolder">
+            <img draggable="false" src="./imgs/robot imag.png" alt="">
         </div>
     </section>
     <section class="sec2" id="sec2">
@@ -51,10 +51,15 @@
 
         <div class="chatDad" id="chatDad">
             <div class="chatArea">
+                <h3>Start chat with <span style="color: var(--mainColor3--);">AIO</span> !!</h3>
                 <!-- <p class="userP">hi how are you ?</p>
                 <p class="aiP">iam fine thanks</p> -->
+                <p class="aiP aiStartM"><span style="color:red;">- </span> Hello how can help you ? :)</p>
             </div>
-            <input class="chatInput" type="text" placeholder="Ask me anything...">
+            <div class="chatInputArea">
+                <input class="chatInput" type="text" placeholder="Ask me anything...">
+                <div onclick="sendMessage()">send</div>
+            </div>
         </div>
     </section>
     <footer id="footer">
@@ -75,10 +80,30 @@
 
 
     <div class="dots">
-        <a href="#nav"><div class="dot dotActive"></div></a>
+        <a href="#sec1"><div class="dot dotActive"></div></a>
         <a href="#sec2"><div class="dot"></div></a>
         <a href="#sec3"><div class="dot"></div></a>
         <a href="#footer"><div class="dot"></div></a>
+    </div>
+
+    <div class="loginPage">
+        <div class="loginTxt">
+            <h1>Welcome back !</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui, aliquam! Voluptate hic, reiciendis accusamus sunt, obcaecati ipsum repellendus asperiores dolorem quis ut necessitatibus aspernatur totam distinctio nostrum eligendi atque provident.</p>
+        </div>
+
+        <div class="loginForm">
+            <div class="sign">
+                <div class="signInBtn signActive" onclick="signin()">Sign in</div>
+                <div class="signUpBtn" onclick="signup()">Sign up</div>
+            </div>
+            <div class="signIn">
+                <h2 class="signH2">Sign in</h2>
+                <input type="text" placeholder="Email">
+                <input type="password" placeholder="Password">
+                <div class="signBtn">Sign in</div>
+            </div>
+        </div>
     </div>
 
     <script src="script.js"></script>
