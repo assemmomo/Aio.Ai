@@ -9,23 +9,25 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     <nav id="nav">
         <div><img src="./imgs/logo2.png" alt="logo"><h2>Aio.AI</h2></div>
         <div class="navMid">
-            <a href="#">Home</a>
-            <a href="#chatDad">Generate</a>
-            <a href="#">Page</a>
-            <a href="#footer">About</a>
-            <a href="#footer">Contact</a>
+            <a onclick="closeLoginPage()" href="#">Home</a>
+            <a onclick="closeLoginPage()" href="#chatDad">Generate</a>
+            <a onclick="closeLoginPage()" href="#">Page</a>
+            <a onclick="closeLoginPage()" href="#footer">About</a>
+            <a onclick="closeLoginPage()" href="#footer">Contact</a>
         </div>
         <div class="navRight">
             <div onclick="openLoginPage()" class="loginBtn">Log In</div>
+            <div class="profileBtn"><h3 class="profileN"></h3><i class="fa-solid fa-user"></i></div>
         </div>
     </nav>
-    <section class="sec1" id="sec1">
+    <section onclick="closeProfileMenu()" class="sec1" id="sec1">
         <div class="leftInfo">
             <p>Generate Your <br>Dream Image <br> With Aio.ai</p>
             <a href="#chatDad"><div class="genBtn">Generate Now</div></a>
@@ -34,14 +36,14 @@
             <img draggable="false" src="./imgs/robot imag.png" alt="">
         </div>
     </section>
-    <section class="sec2" id="sec2">
+    <section onclick="closeProfileMenu()" class="sec2" id="sec2">
         <div class="imgsHolder">
             <div class="img1 img"></div>
             <div class="img2 img"></div>
             <div class="img3 img"></div>
         </div>
     </section>
-    <section class="sec3" id="sec3">
+    <section onclick="closeProfileMenu()" class="sec3" id="sec3">
         <div class="custom-shape-divider-top-1723135780">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
@@ -54,15 +56,19 @@
                 <h3>Start chat with <span style="color: var(--mainColor3--);">AIO</span> !!</h3>
                 <!-- <p class="userP">hi how are you ?</p>
                 <p class="aiP">iam fine thanks</p> -->
-                <p class="aiP aiStartM"><span style="color:red;">- </span> Hello how can help you ? :)</p>
+                <p class="aiP aiStartM"> Hello how can help you ? :)</p>
+                <div class="loginFirst">
+                    <h1>To chat with Aio.Ai you must Login or register !</h1>
+                </div>
             </div>
             <div class="chatInputArea">
                 <input class="chatInput" type="text" placeholder="Ask me anything...">
-                <div onclick="sendMessage()">send</div>
+                <div class="sendBtn" onclick="sendMessage()">send</div>
+                <div onclick="fullScreen()" class="fullS"><i class="fa-solid fa-expand"></i></div>
             </div>
         </div>
     </section>
-    <footer id="footer">
+    <footer onclick="closeProfileMenu()" id="footer">
         <div class="custom-shape-divider-top-1723135780">
             <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                 <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
@@ -97,13 +103,22 @@
                 <div class="signInBtn signActive" onclick="signin()">Sign in</div>
                 <div class="signUpBtn" onclick="signup()">Sign up</div>
             </div>
+            <h2 class="wrongEmail">Email or password is incorrect</h2>
             <div class="signIn">
                 <h2 class="signH2">Sign in</h2>
-                <input type="text" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <div class="signBtn">Sign in</div>
+                <form class="signForm" action="">
+                    <input class="emailIp" type="text" placeholder="Email">
+                    <input class="passIp" type="password" placeholder="Password">
+                </form>
+                <div onclick="login()" class="signBtn">Sign in</div>
+                <div class="signImg"><img src="./imgs/vecteezy_ai-generated-cute-robot-yellow-kids-with-isolated_38049164.png" alt=""></div>
             </div>
         </div>
+    </div>
+    <div class="profileMenu">
+        <div><a href="profile.html">profile</a></div>
+        <div>settings</div>
+        <div class="logoutBtn">Logout</div>
     </div>
 
     <script src="script.js"></script>
