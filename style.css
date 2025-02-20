@@ -271,7 +271,7 @@ nav:first-child h2{
     width: 100%;
     height: 120vh;
     bottom: 20vh;
-    background-color: var(--mainColor2--);
+    background-color: rgb(32, 32, 32);
 }
 .sec3::after{
     content: "Aio Chat";
@@ -283,9 +283,9 @@ nav:first-child h2{
 }
 .chatDad{
     position: absolute;
-    width: 85%;
+    width: 100%;
     height: 75%;
-    background-color: rgba(57, 57, 68, 0.514);
+    background-color: rgb(32, 32, 32);
     left: 50%;
     top: 50%;
     transform: translate(-50%,-50%);
@@ -294,17 +294,16 @@ nav:first-child h2{
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    border-radius: 50px;
-    border: 2px solid #2c2c2c;
+    /* border-radius: 50px; */
 }
 .chatInputArea{
-    width: 60%;
+    width: 50%;
     display: flex;
     justify-content: center;
     gap: 15px;
 }
-.chatInputArea div{
-    width: 6%;
+.sendBtn{
+    width: 55px;
     height: 45px;
     display: flex;
     justify-content: center;
@@ -316,9 +315,42 @@ nav:first-child h2{
     font-weight: 700;
     transition: 0.1s;
 }
-.chatInputArea div:hover{
+.fullS{
+    width: 55px;
+    height: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #2c2c2c;
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--mainColor2--);
+    font-weight: 700;
+    transition: 0.1s;
+    color: white;
+    font-size: 20px;
+}
+.fullS > i{
+    transition: 0.1s;
+}
+.fullScreenActive{
+    width:100vw;
+    height:100vh;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    transform:none;
+    background-color:rgb(32, 32, 32);
+    margin-top: 0px;
+    border-radius: 0px;
+}
+.sendBtn:hover{
     background-color: var(--mainColor2--);
     color: white;
+}
+.fullS:hover{
+    font-size: 25px;
 }
 .chatInput{
     margin-bottom: 20px;
@@ -333,7 +365,7 @@ nav:first-child h2{
 }
 .chatArea{
     position: relative;
-    width: 80%;
+    width: 70%;
     height: 70%;
     margin-top: 150px;
     background-color: #2c2c2c;
@@ -343,15 +375,39 @@ nav:first-child h2{
     overflow: auto;
     scrollbar-width: none;
     padding-top: 100px;
+    padding-left: 30px;
+    padding-right: 30px;
 }
 .chatArea p{
     display: block;
     padding: 10px;
-    margin: 10px;
+    margin: 35px 0;
     font-size: 18px;
 }
 .userP{
     direction: rtl;
+    width: 100%;
+    height: fit-content;
+    /* border-radius: 15px; */
+    margin-top: 10px;
+}
+.aiP{
+    direction: ltr;
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    border-radius:0 15px;
+    border: 1px solid #646464;
+    /* margin-top: 10px; */
+}
+.aiP > span{
+    position: absolute;
+    top: -30px;
+    left: 0px;
+}
+.aiStartM{
+    border-bottom: none;
+    border: none;
 }
 .chatArea h3{
     position: absolute;
@@ -470,7 +526,15 @@ footer h2{
     width: 100%;
     padding-top: 50px;
 }
-.signIn >input{
+.signIn > form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    width: 100%;
+}
+.signIn > form > input{
     width: 400px;
     height: 40px;
     border-radius: 10px;
@@ -481,7 +545,7 @@ footer h2{
 .signIn > h2{
     font-size: 40px;
 }
-.signIn > div{
+.signBtn{
     width: 120px;
     height: 50px;
     display: flex;
@@ -492,9 +556,24 @@ footer h2{
     border: 2px solid var(--mainColor2--);
     user-select: none;
 }
-.signIn > div:hover{
+.signBtn:hover{
     transform: scale(1.05);
     border: 2px solid var(--mainColor3--);
+}
+.wrongEmail{
+    padding: 10px;
+    border: 1px solid red;
+    font-size: 18px;
+    display: none;
+}
+.signImg{
+    position: absolute;
+    width: 30%;
+    left: -100px;
+    transform: rotate(50deg);
+}
+.signImg img{
+    width: 100%;
 }
 .loginTxt{
     position: absolute;
@@ -526,6 +605,85 @@ footer h2{
     height:95%;
     z-index:998;
     margin-top:2.5%;
+}
+.profileBtn{
+    position: relative;
+    cursor:pointer;
+    border:1px solid rgb(62, 88, 62);
+    padding:5px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    width:80px;
+    transition: 0.1s;
+    gap: 5px;
+    text-transform: uppercase;
+}
+.profileN{
+    font-size: 12px;
+}
+.profileBtn:hover{
+    border: 1px solid var(--mainColor3--);
+    background-color: var(--mainColor3--);
+}
+.profileBtn:hover i ,.profileBtn:hover .profileN{
+    color: #2c2c2c;
+}
+.profileMenu{
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    background-color: #2c2c2c;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    top: -200px;
+    right: 15px;
+    border: 1px solid var(--mainColor2--);
+}
+.profileMenu >div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;
+    height: 30%;
+}
+.profileMenu >div:hover{
+    background-color: #3b3b3b;
+    color: var(--mainColor3--);
+}
+.profileMenu >div>a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profileMenuActive{
+    top: 70px;
+}
+.loginFirst{
+    position: absolute;
+    width: 70%;
+    height: 100px;
+    background-color: var(--mainColor2--);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 10px;
+}
+.loginFirst h1{
+    font-size: 25px;
+    color: #2c2c2c;
+    text-align: center;
 }
 @media (max-width: 1150px){
     nav div{
@@ -628,10 +786,29 @@ footer h2{
     footer h2{
         font-size: 15px;
     }
-    
+    .signImg{
+        display: none;
+    }
 }
 @media (max-width: 1000px){
     .dots{
         display: none;
+    }
+}
+@media (max-width: 679px){
+    .leftInfo p {
+        font-size: 30px;
+    }
+    .loginTxt h1 {
+        font-size: 40px;
+    }
+    .loginTxt p {
+        font-size: 20px;
+    }
+    .signIn > form > input {
+        width: 150px;
+    }
+    .sign {
+        width: 85%;
     }
 }
