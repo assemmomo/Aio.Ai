@@ -87,19 +87,23 @@ function closeLoginPage(){
 }
 
 document.addEventListener('scroll', function() {
-    const imgsHolder = document.querySelector('.imgsHolder');
-    const imgsPosition = imgsHolder.getBoundingClientRect().top + 300;
+    const imgsHolder = document.querySelector('.aboutDiv');
+    const imgsPosition = imgsHolder.getBoundingClientRect().top;
     const screenPosition = window.innerHeight / 1.5;
     const aiStartM = document.querySelector('.aiStartM');
     const chatIP = document.querySelector('.chatInput');
     
 
     if (imgsPosition < screenPosition) {
-        imgsHolder.style.opacity = '1';
-        imgsHolder.style.left = '50%';
+        document.querySelector('svg path').style.animation = "text 1s linear 1 forwards";
+        document.querySelectorAll('.sec2TextHolder div').forEach(function(p){
+            p.style.animation = "sec2P 1s linear 1 forwards";
+        });
     }else{
-        imgsHolder.style.opacity = '0';
-        imgsHolder.style.left = '-50%';
+        document.querySelector('svg path').style.animation = "none";
+        document.querySelectorAll('.sec2TextHolder div').forEach(function(p){
+            p.style.animation = "none";
+        });
     }
     if(chatIP.getBoundingClientRect().top < window.innerHeight){
         aiStartM.style.left = '0';
